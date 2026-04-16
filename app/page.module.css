@@ -1,0 +1,398 @@
+.header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-color);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-family: var(--font-playfair);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 2px;
+}
+
+.nav ul {
+  display: flex;
+  gap: 35px;
+}
+
+.nav a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: var(--secondary-color);
+}
+
+.hero {
+  height: 90vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.heroSlider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 42, 77, 0.45);
+  z-index: 2;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: slideAnimation 18s infinite;
+  z-index: 1;
+}
+
+.slide:nth-child(2) {
+  animation-delay: 6s;
+}
+
+.slide:nth-child(3) {
+  animation-delay: 12s;
+}
+
+@keyframes slideAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  5% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 1;
+  }
+  38% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.heroContent {
+  position: relative;
+  max-width: 900px;
+  z-index: 3;
+}
+
+.heroContent h1 {
+  color: white;
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 25px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.heroContent p {
+  font-size: 1.4rem;
+  margin-bottom: 40px;
+  font-weight: 300;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.sectionTitle h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionTitle h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--secondary-color);
+}
+
+.overview {
+  background-color: white;
+}
+
+.overviewContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.overviewImage {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.overviewImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.amenities {
+  background-color: var(--accent-color);
+}
+
+.sliderWrapper {
+  margin: 0 -20px;
+  padding: 0 20px;
+}
+
+.slideContent {
+  padding: 25px;
+}
+
+.slideContent h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.slideImage {
+  width: 100%;
+  height: 220px;
+  background-color: #ddd;
+  position: relative;
+}
+
+.slideImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.locationSection {
+  background-color: white;
+}
+
+.mapBox {
+  margin-top: 50px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  height: 400px;
+}
+
+.contactSection {
+  background: linear-gradient(rgba(26, 42, 77, 0.9), rgba(26, 42, 77, 0.9)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200') center/cover no-repeat;
+  color: white;
+}
+
+.contactSection h2 {
+  color: white;
+}
+
+.contactForm {
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  padding: 50px;
+  border-radius: 0;
+  color: var(--text-color);
+}
+
+.formGroup {
+  margin-bottom: 25px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+}
+
+.formGroup input, .formGroup textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #eee;
+  background-color: #fdfdfd;
+  font-family: inherit;
+}
+
+.footer {
+  background-color: #0c1529;
+  color: #a0aabf;
+  padding: 80px 0 40px;
+  text-align: center;
+}
+
+.fixedContact {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+.fixedBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.fixedBtn:hover {
+  transform: translateY(-5px);
+}
+
+.zaloBtn {
+  background-color: #0068ff;
+}
+
+.downloadBtn {
+  background-color: var(--secondary-color);
+}
+
+.btnIcon {
+  display: flex;
+  align-items: center;
+}
+
+/* --- Mobile Responsiveness --- */
+
+@media (max-width: 992px) {
+  .heroContent h1 { font-size: 3rem; }
+  .overviewContent { grid-template-columns: 1fr; gap: 40px; }
+  .overviewImage { height: 350px; }
+  .sectionTitle h2 { font-size: 2rem; }
+}
+
+@media (max-width: 768px) {
+  .nav { display: none; }
+  
+  .header {
+    height: 70px;
+  }
+  
+  .logo {
+    font-size: 1.4rem;
+  }
+  
+  :global(section) {
+    padding: 60px 0;
+  }
+  
+  .hero {
+    min-height: 70vh;
+  }
+  
+  .heroContent h1 { 
+    font-size: 2.2rem; 
+    margin-bottom: 15px;
+  }
+  
+  .heroContent p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+  
+  .heroContent div {
+    flex-direction: column;
+    gap: 10px !important;
+  }
+  
+  .heroContent .btn {
+    width: 100%;
+  }
+
+  .sectionTitle {
+    margin-bottom: 40px;
+  }
+
+  .sectionTitle h2 {
+    font-size: 1.8rem;
+  }
+
+  .contactForm {
+    padding: 30px 20px;
+  }
+
+  .mapBox {
+    height: 300px;
+    margin-top: 30px;
+  }
+
+  .fixedContact {
+    bottom: 15px;
+    right: 15px;
+    left: 15px;
+    flex-direction: row;
+  }
+
+  .fixedBtn {
+    flex: 1;
+    padding: 10px 10px;
+    font-size: 0.75rem;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent h1 {
+    font-size: 1.8rem;
+  }
+  
+  .overviewImage {
+    height: 250px;
+  }
+  
+  .slide-item {
+    flex: 0 0 260px;
+  }
+}

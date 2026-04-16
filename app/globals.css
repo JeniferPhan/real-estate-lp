@@ -1,0 +1,107 @@
+:root {
+  --primary-color: #1a2a4d; /* Navy Blue */
+  --secondary-color: #b8860b; /* Dark Goldenrod */
+  --text-color: #333;
+  --bg-color: #fff;
+  --accent-color: #f9f9f9;
+  --max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-montserrat), sans-serif;
+  color: var(--text-color);
+  background: var(--bg-color);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-playfair), serif;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 100px 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 0; /* Luxury often uses sharp edges */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Slider Utilities */
+.slider-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.slider-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.slide-item {
+  flex: 0 0 300px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.slide-item:hover {
+  transform: translateY(-10px);
+}
+
+.map-container {
+  width: 100%;
+  height: 450px;
+  background: #eee;
+  position: relative;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
