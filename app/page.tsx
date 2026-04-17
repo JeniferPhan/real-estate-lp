@@ -238,7 +238,7 @@ export default function Home() {
                 <li style={{ margin: '10px 0' }}>• Trực diện cao tốc TP.HCM – Long Thành – Dầu Giây, liên thông toàn vùng</li>
                 <li style={{ margin: '10px 0' }}>•  Đối diện khu liên hợp thể thao Rạch chiếc</li>
               </ul>
-            </div>
+            </div> 
             <div className={styles.mapBox}>
               <div className="map-container">
                 <iframe 
