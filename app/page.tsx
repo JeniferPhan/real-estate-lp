@@ -36,12 +36,18 @@ export default function Home() {
       <header className={styles.header}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
           <div className={styles.logo}>
-            SENTURIA
-            <img src="../public/logo.svg" alt="SENTURIA Logo" />
-            </div>
+            {/* SENTURIA */}
+             <Image 
+                src="../images/logo.svg" 
+                alt="Senturia Logo" 
+                width={250}
+                height={250}
+              />
+           </div>
           <nav className={styles.nav}>
             <ul>
               <li><a href="#overview">Tổng quan</a></li>
+              <li><a href="#floorplan">Mặt Bằng</a></li>
               <li><a href="#amenities">Tiện ích</a></li>
               <li><a href="#location">Vị trí</a></li>
               <li><a href="#contact">Liên hệ</a></li>
@@ -54,17 +60,18 @@ export default function Home() {
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroSlider}>
-          <div className={styles.slide} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1600')" }}></div>
-          <div className={styles.slide} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1600')" }}></div>
-          <div className={styles.slide} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600607687940-47a0f925901e?auto=format&fit=crop&q=80&w=1600')" }}></div>
+          {/* <div className={styles.slide} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1600')" }}></div> */}
+          <div className={styles.slide} style={{ backgroundImage: "url('../images/1.png')" }}></div>
+          <div className={styles.slide} style={{ backgroundImage: "url('../images/2.png')" }}></div>
+          <div className={styles.slide} style={{ backgroundImage: "url('../images/3.jpg')" }}></div>
+          {/* <div className={styles.slide} style={{ backgroundImage: "url('../images/hero-slide-3.jpg')" }}></div> */}
         </div>
         <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
-          <h1>KIẾN TẠO CUỘC SỐNG THƯỢNG LƯU - THIÊN NHIÊN TRƯỚC THỀM NHÀ</h1>
-          <p>Trải nghiệm không gian sống đẳng cấp 5 sao tại trung tâm thành phố.</p>
-          <p style={{ fontSize: '1rem' }}>
-            Mang đến bạn trải nghiệm sống cân bằng thân - tâm - trí để mỗi ngày trôi qua đều là một kỳ nghỉ đầy thư thái. 
+          <h1>KIẾN TẠO CUỘC SỐNG THƯỢNG LƯU</h1>
+          <p>Trải nghiệm không gian sống đẳng cấp 5 sao tại trung tâm thành phố. <br />  Mang đến bạn trải nghiệm sống cân bằng thân - tâm - trí để mỗi ngày trôi qua đều là một kỳ nghỉ đầy thư thái.
           </p>
+          
           <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
             <a href="#contact" className="btn">XEM BẢNG GIÁ</a>
             <a href="#overview" className="btn" style={{ backgroundColor: 'white', color: 'var(--primary-color)' }}>TÌM HIỂU THÊM</a>
@@ -79,32 +86,54 @@ export default function Home() {
             <div>
               <h2 style={{ marginBottom: '30px', fontSize: '2.5rem' }}>TỔNG QUAN DỰ ÁN</h2>
               <p style={{ marginBottom: '20px', fontSize: '1.1rem', color: '#666' }}>
-                Senturia Residence là biểu tượng của sự sang trọng và thịnh vượng. Với kiến trúc hiện đại, dự án mang đến không gian sống hoàn hảo, nơi mỗi ngày đều là một kỳ nghỉ dưỡng tuyệt vời.
+                Senturia là biểu tượng của sự sang trọng và thịnh vượng. Là khu nhà phố – biệt thự compound cao cấp.
               </p>
               <ul style={{ marginBottom: '30px' }}>
                 <li style={{ marginBottom: '12px', borderBottom: '1px solid #eee', paddingBottom: '10px' }}>
-                  <strong style={{ color: 'var(--primary-color)' }}>Chủ đầu tư:</strong> Tập đoàn RealEstate Group
+                  <strong style={{ color: 'var(--primary-color)' }}>Chủ đầu tư:</strong> Tiến Phước Group
                 </li>
                 <li style={{ marginBottom: '12px', borderBottom: '1px solid #eee', paddingBottom: '10px' }}>
-                  <strong style={{ color: 'var(--primary-color)' }}>Vị trí:</strong> Đại Lộ X, Quận 1, TP.HCM
+                  <strong style={{ color: 'var(--primary-color)' }}>Vị trí:</strong>  Mặt tiền Đường Song Hành Khu Nam Rạch Chiếc, Phường Bình Trưng - TP. HCM
                 </li>
                 <li style={{ marginBottom: '12px', borderBottom: '1px solid #eee', paddingBottom: '10px' }}>
-                  <strong style={{ color: 'var(--primary-color)' }}>Quy mô:</strong> 2 Block cao 45 tầng
+                  <strong style={{ color: 'var(--primary-color)' }}>Quy mô:</strong>  ~8,6 ha Số lượng sản phẩm: 355 căn (giới hạn, tính độc bản cao) ưu tiên không gian xanh & tiện ích Pháp lý
                 </li>
                 <li style={{ marginBottom: '12px', borderBottom: '1px solid #eee', paddingBottom: '10px' }}>
-                  <strong style={{ color: 'var(--primary-color)' }}>Bàn giao:</strong> Quý IV/2026
+                  <strong style={{ color: 'var(--primary-color)' }}>Loại hình phát triển:</strong> Biệt thự – Nhà phố compound cao cấp
+                </li>
+                <li style={{ marginBottom: '12px', borderBottom: '1px solid #eee', paddingBottom: '10px' }}>
+                  <strong style={{ color: 'var(--primary-color)' }}>Bàn giao:</strong> Quý IV/2027
                 </li>
               </ul>
             </div>
             <div className={styles.overviewImage}>
               <Image 
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" 
+                src="../images/nha-pho-thuong-mai-0-20260326023415-ksejc.jpg" 
                 alt="Senturia Residence Overview" 
                 width={800}
                 height={500}
                 style={{ objectFit: 'cover' }}
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Floor Plan Section */}
+      <section id="floorplan" className={styles.floorplan}>
+        <div className="container">
+          <div className={styles.sectionTitle}>
+            <h2>MẶT BẰNG DỰ ÁN</h2>
+            <p>Khám phá bố cục tổng thể của dự án Senturia</p>
+          </div>
+          <div className={styles.floorplanImage}>
+            <Image 
+              src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=1200" 
+              alt="Mặt Bằng Dự Án Senturia" 
+              width={1200}
+              height={800}
+              style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+            />
           </div>
         </div>
       </section>
@@ -132,10 +161,10 @@ export default function Home() {
               ))}
             </div>
           </div>
-          
+{/*           
           <p style={{ textAlign: 'center', marginTop: '30px', color: '#999', fontSize: '0.9rem' }}>
             {"< Vuốt sang ngang để xem thêm >"}
-          </p>
+          </p> */}
         </div>
       </section>
 
@@ -144,7 +173,7 @@ export default function Home() {
         <div className="container">
           <div className={styles.sectionTitle}>
             <h2>VỊ TRÍ ĐẮC ĐỊA</h2>
-            <p>Kết nối thuận tiện đến mọi điểm đến quan trọng trong thành phố</p>
+            <p>CHẠM METRO – NỐI CAO TỐC ĐÓN SÓNG HẠ TẦNG QUỐC GIA</p>
           </div>
           
           <div className={styles.overviewContent}>
@@ -154,16 +183,18 @@ export default function Home() {
                 Tọa lạc tại vị trí vàng hiếm hoi còn sót lại tại trung tâm, Senturia mang đến khả năng kết nối không giới hạn.
               </p>
               <ul style={{ color: '#555' }}>
-                <li style={{ margin: '10px 0' }}>• 5 phút đến Chợ Bến Thành</li>
-                <li style={{ margin: '10px 0' }}>• 3 phút đến Hệ thống trường quốc tế</li>
-                <li style={{ margin: '10px 0' }}>• 10 phút đến Khu đô thị Thủ Thiêm</li>
-                <li style={{ margin: '10px 0' }}>• 20 phút đến Sân bay Tân Sơn Nhất</li>
+                <li style={{ margin: '10px 0' }}>• 15 phút đến Chợ Bến Thành</li>
+                <li style={{ margin: '10px 0' }}>• Kết nối nhanh về trung tâm qua trục Mai Chí Thọ – Thủ Thiêm – Quận 1  </li>
+                <li style={{ margin: '10px 0' }}>• Hưởng lợi từ quy hoạch Metro số 2 Bến Thành – Tham Lương trong tương lai</li>
+                <li style={{ margin: '10px 0' }}>• Nằm trên trục kết nối tuyến đường sắt Ngọc Hồi - Thủ Thiêm xuyên suốt Bắc - Nam</li>
+                <li style={{ margin: '10px 0' }}>• Trực diện cao tốc TP.HCM – Long Thành – Dầu Giây, liên thông toàn vùng</li>
+                <li style={{ margin: '10px 0' }}>•  Đối diện khu liên hợp thể thao Rạch chiếc</li>
               </ul>
             </div>
             <div className={styles.mapBox}>
               <div className="map-container">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4243093220557!2d106.7001475!3d10.7766324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f40a1b17e53%3A0x714561e9f3a7292a!2zQuG6v24gVGjDoG5oLCBRdeG6rW4gMSwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1713254000000!5m2!1svi!2s" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15676.788998311436!2d106.75360207933213!3d10.796199575523149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174778b678c92f5%3A0x8526ad6841dd971a!2sSenturia%20An%20Ph%C3%BA!5e0!3m2!1svi!2sus!4v1776416252924!5m2!1svi!2sus" 
                   allowFullScreen={true} 
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
@@ -175,7 +206,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className={styles.contactSection}>
+      <section id="contact" style={{marginTop: '40x'}} className={styles.contactSection}>
         <div className="container">
           <div className={styles.sectionTitle}>
             <h2>ĐĂNG KÝ NHẬN TƯ VẤN</h2>
@@ -204,10 +235,17 @@ export default function Home() {
       {/* Footer */}
       <footer className={styles.footer}>
         <div className="container">
-          <h2 style={{ color: 'white', marginBottom: '20px' }}>SENTURIA</h2>
-          <p>Hotline: 1800 123 456 | Email: info@SENTURIAresidence.vn</p>
+          {/* <h2 style={{ color: 'white', marginBottom: '20px' }}>SENTURIA</h2> */}
+           <Image 
+                src="../images/logo-tienphuoc.png" 
+                alt="Senturia Logo" 
+                width={200}
+                height={150}
+              />
+          <p>Hotline: 0899997352 | Email: ms.thuyphan@gmail.com</p>
+          <p>Địa chỉ: Lầu 18 Tòa nhà Fideco 81 85 Hàm Nghi, Nguyễn Thái Bình, Quận 1, TP. Hồ Chí Minh</p>
           <p style={{ fontSize: '0.8rem', marginTop: '30px', opacity: 0.6 }}>
-            © 2026 SENTURIA Residence. All rights reserved. Thông tin mang tính chất tham khảo.
+            © 2026 SENTURIA Residence. All rights reserved.
           </p>
         </div>
       </footer>

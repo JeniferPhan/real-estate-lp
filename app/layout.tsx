@@ -13,7 +13,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://skylineresidence.vn'),
+  metadataBase: new URL('https://senturiavietnam.com'),
   title: {
     default: "Senturia Residence | Căn Hộ Cao Cấp Quận 1 - Bảng Giá 2026",
     template: "%s | Senturia Residence"
@@ -66,6 +66,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'google-site-verification-id',
+  },
+  icons: {
+    icon: '../images/favicon.png',
   },
 };
 
