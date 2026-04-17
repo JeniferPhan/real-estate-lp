@@ -15,7 +15,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL('https://senturiavietnam.com'),
   title: {
-    default: "Senturia Residence | Căn Hộ Cao Cấp Quận 1 - Bảng Giá 2026",
+    default: "Senturia Residence | Căn Hộ Cao Cấp Thượng Lưu",
     template: "%s | Senturia Residence"
   },
   description: "Senturia Residence - Dự án căn hộ cao cấp tại trung tâm Quận 1. Vị trí đắc địa, tiện ích 5 sao, pháp lý minh bạch. Đăng ký nhận bảng giá và tham quan nhà mẫu ngay!",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Senturia Residence | Căn Hộ Cao Cấp Quận 1 - Đẳng Cấp Thượng Lưu",
     description: "Khám phá không gian sống 5 sao tại Senturia Residence. Nhận ưu đãi chiết khấu trực tiếp từ chủ đầu tư.",
-    url: 'https://senturiaresidence.vn',
+    url: 'https://senturiavietnam.com',
     siteName: 'Senturia Residence',
     locale: 'vi_VN',
     type: 'website',
