@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 const amenities = [
   {
@@ -30,6 +34,50 @@ const amenities = [
 ];
 
 export default function Home() {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('submitting');
+
+    try {
+      const { error } = await supabase
+        .from('leads')
+        .insert([
+          { 
+            name: formData.name, 
+            phone: formData.phone, 
+            email: formData.email,
+            created_at: new Date().toISOString()
+          }
+        ]);
+
+      if (error) throw error;
+      
+      setStatus('success');
+      setFormData({ name: '', phone: '', email: '' });
+      alert('Cảm ơn bạn đã đăng ký! Chúng tôi sẽ liên hệ sớm nhất.');
+    } catch (error) {
+      console.error('Error submitting lead:', error);
+      setStatus('error');
+      alert('Đã có lỗi xảy ra. Vui lòng thử lại sau.');
+    } finally {
+      setStatus('idle');
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
   return (
     <main>
       {/* Header */}
@@ -213,20 +261,50 @@ export default function Home() {
             <p style={{ color: '#ccc' }}>Để lại thông tin để nhận bảng giá và chính sách ưu đãi mới nhất</p>
           </div>
           <div className={styles.contactForm}>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className={styles.formGroup}>
                 <label htmlFor="name">Họ và Tên</label>
-                <input type="text" id="name" name="name" placeholder="Nguyễn Văn A" required />
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  placeholder="Nguyễn Văn A" 
+                  required 
+                  value={formData.name}
+                  onChange={handleChange}
+                />
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="phone">Số Điện Thoại</label>
-                <input type="tel" id="phone" name="phone" placeholder="0901 234 567" required />
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone" 
+                  placeholder="0901 234 567" 
+                  required 
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="email@example.com" />
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  placeholder="email@example.com" 
+                  value={formData.email}
+                  onChange={handleChange}
+                />
               </div>
-              <button type="submit" className="btn" style={{ width: '100%', padding: '20px' }}>ĐĂNG KÝ NGAY</button>
+              <button 
+                type="submit" 
+                className="btn" 
+                style={{ width: '100%', padding: '20px' }}
+                disabled={status === 'submitting'}
+              >
+                {status === 'submitting' ? 'ĐANG GỬI...' : 'ĐĂNG KÝ NGAY'}
+              </button>
             </form>
           </div>
         </div>
