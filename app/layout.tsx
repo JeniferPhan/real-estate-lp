@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     google: 'google-site-verification-id',
   },
   icons: {
-    icon: '../images/favicon.png',
+    icon: '/images/favicon.png',
   },
 };
 

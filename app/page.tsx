@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import toast, { Toaster } from "react-hot-toast";
 import styles from "./page.module.css";
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
@@ -46,26 +47,40 @@ export default function Home() {
     setStatus('submitting');
 
     try {
-      const { error } = await supabase
-        .from('leads')
-        .insert([
-          { 
-            name: formData.name, 
-            phone: formData.phone, 
-            email: formData.email,
-            created_at: new Date().toISOString()
-          }
-        ]);
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-      if (error) throw error;
-      
+      const contentType = response.headers.get("content-type");
+      const result = contentType?.includes("application/json") 
+        ? await response.json() 
+        : null;
+
+      if (!response.ok) {
+        throw new Error(result?.error || `Server returned ${response.status}`);
+      }
+
       setStatus('success');
       setFormData({ name: '', phone: '', email: '' });
-      alert('Cảm ơn bạn đã đăng ký! Chúng tôi sẽ liên hệ sớm nhất.');
+      toast.success('Cảm ơn bạn đã đăng ký! Chúng tôi sẽ liên hệ sớm nhất.', { 
+        duration: 5000,
+        position: 'top-right',
+        style: {
+          background: 'var(--primary-color)',
+          color: 'white',
+        },
+      });
     } catch (error) {
       console.error('Error submitting lead:', error);
       setStatus('error');
-      alert('Đã có lỗi xảy ra. Vui lòng thử lại sau.');
+      toast.error('Đã có lỗi xảy ra. Vui lòng thử lại sau.', { 
+        duration: 5000,
+        position: 'top-right',
+      });
     } finally {
       setStatus('idle');
     }
@@ -79,6 +94,8 @@ export default function Home() {
   };
 
   return (
+    <div>
+      
     <main>
       {/* Header */}
       <header className={styles.header}>
@@ -86,7 +103,7 @@ export default function Home() {
           <div className={styles.logo}>
             {/* SENTURIA */}
              <Image 
-                src="../images/logo.svg" 
+                src="/images/logo.svg" 
                 alt="Senturia Logo" 
                 width={250}
                 height={250}
@@ -109,9 +126,9 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroSlider}>
           {/* <div className={styles.slide} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1600')" }}></div> */}
-          <div className={styles.slide} style={{ backgroundImage: "url('../images/1.png')" }}></div>
-          <div className={styles.slide} style={{ backgroundImage: "url('../images/2.png')" }}></div>
-          <div className={styles.slide} style={{ backgroundImage: "url('../images/3.jpg')" }}></div>
+          <div className={styles.slide} style={{ backgroundImage: "url('/images/1.png')" }}></div>
+          <div className={styles.slide} style={{ backgroundImage: "url('/images/2.png')" }}></div>
+          <div className={styles.slide} style={{ backgroundImage: "url('/images/3.jpg')" }}></div>
           {/* <div className={styles.slide} style={{ backgroundImage: "url('../images/hero-slide-3.jpg')" }}></div> */}
         </div>
         <div className={styles.heroOverlay}></div>
@@ -156,7 +173,7 @@ export default function Home() {
             </div>
             <div className={styles.overviewImage}>
               <Image 
-                src="../images/nha-pho-thuong-mai-0-20260326023415-ksejc.jpg" 
+                src="/images/nha-pho-thuong-mai-0-20260326023415-ksejc.jpg" 
                 alt="Senturia Residence Overview" 
                 width={800}
                 height={500}
@@ -300,10 +317,21 @@ export default function Home() {
               <button 
                 type="submit" 
                 className="btn" 
-                style={{ width: '100%', padding: '20px' }}
+                style={{ 
+                  width: '100%', 
+                  padding: '20px',
+                  opacity: status === 'submitting' ? 0.7 : 1,
+                }}
                 disabled={status === 'submitting'}
               >
-                {status === 'submitting' ? 'ĐANG GỬI...' : 'ĐĂNG KÝ NGAY'}
+                {status === 'submitting' ? (
+                  <>
+                    <span style={{ marginRight: '10px' }}>⏳</span>
+                    ĐANG GỬI...
+                  </>
+                ) : (
+                  'ĐĂNG KÝ NGAY'
+                )}
               </button>
             </form>
           </div>
@@ -315,7 +343,7 @@ export default function Home() {
         <div className="container">
           {/* <h2 style={{ color: 'white', marginBottom: '20px' }}>SENTURIA</h2> */}
            <Image 
-                src="../images/logo-tienphuoc.png" 
+                src="/images/logo-tienphuoc.png" 
                 alt="Senturia Logo" 
                 width={200}
                 height={150}
@@ -363,6 +391,9 @@ export default function Home() {
         </a>
       </div>
       </main>
+      
+      <Toaster />
+      
+    </div>
       );
       }
-
